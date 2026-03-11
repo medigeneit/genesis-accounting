@@ -1,0 +1,63 @@
+{
+    "name": "medigeneit/genesis-accounting",
+    "description": "Laravel package for Genesis ERP API integration",
+    "type": "library",
+    "license": "MIT",
+    "keywords": [
+        "laravel",
+        "erp",
+        "accounting",
+        "genesis",
+        "medigeneit",
+        "api"
+    ],
+    "authors": [
+        {
+            "name": "Medigene IT",
+            "email": "medigeneit@gmail.com"
+        }
+    ],
+    "homepage": "https://github.com/medigeneit/genesis-accounting",
+    "support": {
+        "issues": "https://github.com/medigeneit/genesis-accounting/issues",
+        "source": "https://github.com/medigeneit/genesis-accounting"
+    },
+    "require": {
+        "php": "^8.1",
+        "illuminate/support": "^8.0|^9.0|^10.0|^11.0|^12.0",
+        "illuminate/http": "^8.0|^9.0|^10.0|^11.0|^12.0",
+        "guzzlehttp/guzzle": "^7.0"
+    },
+    "require-dev": {
+        "orchestra/testbench": "^6.0|^7.0|^8.0|^9.0|^10.0",
+        "phpunit/phpunit": "^9.0|^10.0|^11.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Medigeneit\\GenesisAccounting\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Medigeneit\\GenesisAccounting\\Tests\\": "tests/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Medigeneit\\GenesisAccounting\\GenesisAccountingServiceProvider"
+            ],
+            "aliases": {
+                "GenesisAccounting": "Medigeneit\\GenesisAccounting\\Facades\\GenesisAccounting"
+            }
+        }
+    },
+    "scripts": {
+        "test": "vendor/bin/phpunit"
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "config": {
+        "sort-packages": true
+    }
+}

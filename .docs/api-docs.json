@@ -1,0 +1,277 @@
+{
+  "info": {
+    "_postman_id": "d694728f-931b-4585-8a0e-4b5dd33bf34b",
+    "name": "0.GEN-ERP",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "7491907",
+    "_collection_link": "https://go.postman.co/collection/7491907-d694728f-931b-4585-8a0e-4b5dd33bf34b?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "enroll-student",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"enrollments\": [ // Array of student objects; can contain multiple students\r\n        {\r\n            \"reg_no\": \"REG1001\", // Unique registration number of the student\r\n            \"full_name\": \"Rahim Uddin\", // Full name of the student\r\n            \"project_code\": \"00001\",  \r\n            \"project_name\": \"FCPS Part-I\",\r\n            \"gender\": \"Male\", // Gender of the student\r\n            \"phone\": \"01711111111\", // Contact phone number\r\n            \"email\": \"rahim@gmail.com\", // Email address\r\n            \"course_id\": 101, // Internal ID for the enrolled course\r\n            \"course_name\": \"Web Development\", // Name of the course\r\n            \"course_code\": \"WD-01\", // Unique code assigned to the course\r\n            \"course_category_id\": 10, // ID of the course category (e.g., IT, Business)\r\n            \"course_category_name\": \"IT\", // Name of the course category\r\n            \"branch_id\": 1, // ID of the branch/campus where student is enrolled\r\n            \"batch_id\": 1, // Name of the batch the student belongs to\r\n            \"batch_name\": \"Batch-15\", // Name of the batch the student belongs to\r\n            \"batch_type\": \"Regular\", // Type of batch (Regular/Weekend/Online)\r\n            \"session_id\": 2026, // Academic session ID\r\n            \"session_name\": \"Spring 2026\", // Name of the academic session\r\n            \"course_fee\": 30000, // Total course fee before discount\r\n            \"lecture_sheet_fee\": 2000, // Additional fee for lecture materials\r\n            \"courier_fee\": 100, // Courier fee for lecture materials\r\n            \"discount_amount\": 1000, // Discount applied to the student only when payment done when enroll\r\n            \"payment\": { // Object containing payment details\r\n                \"payment_method\": \"BKASH\", // Method used for payment (BKASH, Cash, Bank)\r\n                \"payment_gateway\": \"BKASH\", // Gateway used for online payment\r\n                \"transaction_id\": \"XDASDFASFD\", // Unique transaction ID from payment gateway\r\n                \"gateway_reference\": \"\", // Reference number provided by gateway (optional)\r\n                \"mobile_ac_number\": \"01711111111\", // bkash a/c number received for payment\r\n                \"mobile_number\": \"01711111111\", // Mobile number used for payment\r\n                \"card_type\": \"\", // Card type if card payment (VISA, MasterCard) (optional)\r\n                \"card_last4\": \"\", // Last 4 digits of card number if card used (optional)\r\n                \"card_issuer\": \"\", // Issuing bank of the card (optional)\r\n                \"bank_name\": \"\", // Bank name if bank transfer used (optional)\r\n                \"bank_account\": \"\", // Bank account number if applicable (optional)\r\n                \"currency\": \"BDT\", // Currency code (BDT = Bangladeshi Taka)\r\n                \"payment_amount\": 3000.00, // Amount paid\r\n                \"gateway_fee\": 0.00, // Fee charged by payment gateway\r\n                \"payment_status\": \"SUCCESS\", // Status of payment (SUCCESS/FAILED/PENDING)\r\n                \"ip_address\": \"\", // IP address of payer (optional)\r\n                \"device_info\": \"\", // Device info used for payment (optional)\r\n                \"remarks\": \"Online payment\" // Additional notes about payment\r\n            }\r\n        }\r\n    ]\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://stepserp.webnstech.net/Webns/steperp/med/enroll-student?API_KEY=d0e876fbfb1c0033b14c69281f3ccff1cf908ce2a7b9b7255b1892a90687b33a",
+          "protocol": "https",
+          "host": [
+            "stepserp",
+            "webnstech",
+            "net"
+          ],
+          "path": [
+            "Webns",
+            "steperp",
+            "med",
+            "enroll-student"
+          ],
+          "query": [
+            {
+              "key": "API_KEY",
+              "value": "d0e876fbfb1c0033b14c69281f3ccff1cf908ce2a7b9b7255b1892a90687b33a"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "doctor-payment",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"payments\": [ // Array of payment objects; can contain multiple payments\r\n        {\r\n            \"reg_no\": \"DOC12345\", // Unique registration/ID of the payer (student/doctor/customer)\r\n            \"payment_date\": \"2026-03-08\", // Date of payment\r\n            \"payment_date_time\": \"2026-03-08 01:01:01 PM\", // Date of payment\r\n            \"payment_method\": \"BKASH\", // Method of payment (BKASH, CASH, CARD, BANK_TRANSFER, etc.)\r\n            \"payment_gateway\": \"BKASH\", // Online payment gateway used (empty for CASH)\r\n            \"transaction_id\": \"TXN789456123\", // Unique transaction ID from the gateway\r\n            \"gateway_reference\": \"REF123456\", // Reference number provided by gateway\r\n            \"order_id\": \"ORD20260308-001\", // Associated order ID for the payment\r\n            \"mobile_ac_number\": \"01711111111\", // bkash a/c number received for payment\r\n            \"mobile_number\": \"01712345678\", // Mobile number used for payment\r\n            \"card_type\": \"\", // Type of card (VISA, MasterCard, etc.), if card payment\r\n            \"card_last4\": \"\", // Last 4 digits of the card number\r\n            \"card_issuer\": \"\", // Issuing bank of the card\r\n            \"bank_name\": \"\", // Bank name for bank transfer payments\r\n            \"bank_account\": \"\", // Bank account number for transfer payments\r\n            \"currency\": \"BDT\", // Currency of payment (BDT = Bangladeshi Taka)\r\n            \"payment_amount\": 5000.00, // Total payment amount\r\n            \"gateway_fee\": 50.00, // Fee charged by payment gateway, if any\r\n            \"payment_status\": \"SUCCESS\", // Status of the payment (SUCCESS) Only SUCCESS payment send \r\n            \"ip_address\": \"192.168.1.100\", // IP address of payer (optional)\r\n            \"device_info\": \"Chrome on Windows 10\", // Device/browser used for payment (optional)\r\n            \"remarks\": \"March consultation fee\", // Additional notes or description\r\n            \"payment_for\": \"Student Fee\" ,// Purpose of payment (Student Fee, Sales, Consultation, etc.),\r\n            \"entryById\": \"E00001\", // Employee id of salesperson handling this invoice\r\n            \"entryByName\": \"Alice\"  // Name of salesperson handling this invoice\r\n        },\r\n        {\r\n            \"reg_no\": \"DOC67890\", // Unique registration/ID of the payer\r\n            \"payment_date\": \"2026-03-08\", // Date of payment\r\n            \"payment_method\": \"CASH\", // Method of payment\r\n            \"payment_gateway\": \"\", // Empty because cash payment\r\n            \"transaction_id\": \"\", // Empty for cash payment\r\n            \"gateway_reference\": \"\", // Empty for cash payment\r\n            \"order_id\": \"\", // Not applicable for cash\r\n            \"mobile_number\": \"\", // Not required for cash\r\n            \"card_type\": \"\", // Not applicable for cash\r\n            \"card_last4\": \"\", // Not applicable for cash\r\n            \"card_issuer\": \"\", // Not applicable for cash\r\n            \"bank_name\": \"\", // Not applicable for cash\r\n            \"bank_account\": \"\", // Not applicable for cash\r\n            \"currency\": \"BDT\", // Currency of payment\r\n            \"payment_amount\": 3000.00, // Total payment amount\r\n            \"gateway_fee\": 0.00, // No gateway fee for cash\r\n            \"payment_status\": \"SUCCESS\", // Payment completed\r\n            \"ip_address\": \"\", // Not applicable for cash\r\n            \"device_info\": \"\", // Not applicable for cash\r\n            \"remarks\": \"Onsite payment\", // Notes about payment\r\n            \"payment_for\": \"Sales\" // Purpose of payment\r\n        }\r\n    ]\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://stepserp.webnstech.net/Webns/steperp/med/doctor-payment?API_KEY=d0e876fbfb1c0033b14c69281f3ccff1cf908ce2a7b9b7255b1892a90687b33a",
+          "protocol": "https",
+          "host": [
+            "stepserp",
+            "webnstech",
+            "net"
+          ],
+          "path": [
+            "Webns",
+            "steperp",
+            "med",
+            "doctor-payment"
+          ],
+          "query": [
+            {
+              "key": "API_KEY",
+              "value": "d0e876fbfb1c0033b14c69281f3ccff1cf908ce2a7b9b7255b1892a90687b33a"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "customer-payment",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"payments\": [ // Array of payment objects; can contain multiple payments\r\n        {\r\n            \"customer_id\": \"DOC67890\", // Unique ID of the customer or payer\r\n            \"payment_date\": \"2026-03-08\",\r\n            \"payment_date_time\": \"2026-03-08 01:01:01 PM\", // Date of payment\r\n            \"payment_method\": \"CASH\", // Payment method (e.g., CASH, BKASH, CARD, BANK_TRANSFER)\r\n            \"payment_gateway\": \"\", // Name of the gateway if online payment; empty for CASH\r\n            \"transaction_id\": \"\", // Transaction ID from the payment gateway; empty for CASH\r\n            \"gateway_reference\": \"\", // Gateway reference number; empty for CASH\r\n            \"order_id\": \"\", // Associated order ID if applicable; empty for CASH\r\n            \"mobile_ac_number\": \"01711111111\", // bkash a/c number received for payment\r\n            \"mobile_number\": \"\", // Mobile number used for payment; optional, empty for CASH\r\n            \"card_type\": \"\", // Card type (VISA, MasterCard); applicable if card payment\r\n            \"card_last4\": \"\", // Last 4 digits of card; applicable if card payment\r\n            \"card_issuer\": \"\", // Issuing bank of the card; applicable if card payment\r\n            \"bank_name\": \"\", // Bank name if bank transfer is used\r\n            \"bank_account\": \"\", // Bank account number if bank transfer is used\r\n            \"currency\": \"BDT\", // Currency of payment (BDT = Bangladeshi Taka)\r\n            \"payment_amount\": 3000.00, // Total amount paid\r\n            \"gateway_fee\": 0.00, // Fee charged by gateway; usually 0 for CASH\r\n            \"payment_status\": \"SUCCESS\", // Status of payment (SUCCESS, FAILED, PENDING)\r\n            \"ip_address\": \"\", // IP address of payer; optional\r\n            \"device_info\": \"\", // Device/browser info used for payment; optional\r\n            \"remarks\": \"Onsite payment\", // Additional notes about the payment\r\n            \"payment_for\": \"Sales\", // Purpose of payment (Sales, Student Fee, Consultation, etc.),\r\n            \"entryById\": \"E00001\", // Employee id of salesperson handling this invoice\r\n            \"entryByName\": \"Alice\"  // Name of salesperson handling this invoice\r\n        }\r\n    ]\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://stepserp.webnstech.net/Webns/steperp/med/customer-payment?API_KEY=d0e876fbfb1c0033b14c69281f3ccff1cf908ce2a7b9b7255b1892a90687b33a",
+          "protocol": "https",
+          "host": [
+            "stepserp",
+            "webnstech",
+            "net"
+          ],
+          "path": [
+            "Webns",
+            "steperp",
+            "med",
+            "customer-payment"
+          ],
+          "query": [
+            {
+              "key": "API_KEY",
+              "value": "d0e876fbfb1c0033b14c69281f3ccff1cf908ce2a7b9b7255b1892a90687b33a"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "sales",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"SALESHeader\": [ // Array of sales invoices\r\n        {\r\n            \"invoiceNo\": \"INV-20260308-001\", // Unique invoice number\r\n            \"invoiceDate\": \"2026-03-08\", // Invoice date\r\n            \"customerCode\": \"CUST001\", // Unique code of the customer\r\n            \"customerName\": \"John Doe\", // Customer's full name\r\n            \"customerPhone\": \"017XXXXXXXX\", // Customer phone number\r\n            \"customerAddress\": \"123, Main Street, Dhaka\", // Customer address\r\n            \"invoiceMode\": \"Cash\", // Mode of invoice (Cash, Credit)\r\n            \"totalAmount\": 5000.00, // Total amount before discount and VAT\r\n            \"totalDiscount\": 200.00, // Total discount applied on invoice\r\n            \"totalVatAmount\": 450.00, // Total VAT amount\r\n            \"deliveryCharge\": 50.00, // Delivery charges\r\n            \"netAmount\": 5300.00, // Final amount after discount, VAT, and delivery\r\n            \"invoiceType\": \"Cash\", // Type of invoice (Cash or Credit)\r\n            \"salesPersonId\": \"E00001\", // Employee id of salesperson handling this invoice\r\n            \"salesPerson\": \"Alice\", // Name of salesperson handling this invoice\r\n            \"paymentStatus\": \"Paid\", // Payment status of invoice (Paid, Pending, Partial)\r\n            \"payment\": { // Object containing payment details\r\n                \"payment_method\": \"CASH\", // Payment method (CASH, BKASH, CARD, etc.)\r\n                \"payment_gateway\": \"\", // Online gateway used, empty for cash\r\n                \"transaction_id\": \"\", // Gateway transaction ID, empty for cash\r\n                \"gateway_reference\": \"\", // Gateway reference number\r\n                \"order_id\": \"\", // Associated order ID\r\n                \"mobile_number\": \"\", // Mobile number used for payment\r\n                \"card_type\": \"\", // Card type if card payment\r\n                \"card_last4\": \"\", // Last 4 digits of card if card payment\r\n                \"card_issuer\": \"\", // Card issuer bank\r\n                \"bank_name\": \"\", // Bank name if bank transfer\r\n                \"bank_account\": \"\", // Bank account number\r\n                \"currency\": \"BDT\", // Currency (BDT = Bangladeshi Taka)\r\n                \"payment_amount\": 3000.00, // Amount paid\r\n                \"gateway_fee\": 0.00, // Fee charged by gateway\r\n                \"payment_status\": \"SUCCESS\", // Status of payment (SUCCESS, FAILED, PENDING)\r\n                \"ip_address\": \"\", // Payer IP address\r\n                \"device_info\": \"\", // Device/browser used for payment\r\n                \"remarks\": \"Onsite payment\", // Additional notes about payment\r\n                \"paymnet_for\": \"Sales\" // Purpose of payment; NOTE: typo, should be \"payment_for\"\r\n            },\r\n            \"SALESDetails\": [ // Array of individual items in the invoice\r\n                {\r\n                    \"itemCode\": \"ITEM001\", // Unique item code\r\n                    \"itemName\": \"Paracetamol 500mg\", // Item name\r\n                    \"packSize\": \"10x10\", // Packaging size\r\n                    \"uom\": \"Box\", // Unit of measure\r\n                    \"salesQty\": 2, // Quantity sold\r\n                    \"unitPrice\": 200.00, // Price per unit before VAT/discount\r\n                    \"unitVatPrct\": 15.00, // VAT percentage per unit\r\n                    \"unitDiscount\": 5.00, // Discount per unit\r\n                    \"totalLineCost\": 390.00 // Total cost for this line (after discount + VAT)\r\n                },\r\n                {\r\n                    \"itemCode\": \"ITEM002\",\r\n                    \"itemName\": \"Amoxicillin 250mg\",\r\n                    \"packSize\": \"10x10\",\r\n                    \"uom\": \"Box\",\r\n                    \"salesQty\": 1,\r\n                    \"unitPrice\": 300.00,\r\n                    \"unitVatPrct\": 15.00,\r\n                    \"unitDiscount\": 0.00,\r\n                    \"totalLineCost\": 345.00\r\n                }\r\n            ]\r\n        },\r\n        {\r\n            \"invoiceNo\": \"INV-20260308-002\",\r\n            \"invoiceDate\": \"2026-03-08\",\r\n            \"customerCode\": \"CUST002\",\r\n            \"customerName\": \"Jane Smith\",\r\n            \"customerPhone\": \"018XXXXXXXX\",\r\n            \"customerAddress\": \"456, Lake Road, Dhaka\",\r\n            \"invoiceMode\": \"Credit\",\r\n            \"totalAmount\": 8000.00,\r\n            \"totalDiscount\": 500.00,\r\n            \"totalVatAmount\": 720.00,\r\n            \"deliveryCharge\": 100.00,\r\n            \"netAmount\": 8320.00,\r\n            \"invoiceType\": \"Credit\",\r\n            \"salesPerson\": \"Bob\",\r\n            \"paymentStatus\": \"Pending\",\r\n            \"payment\": {\r\n                \"payment_method\": \"CASH\",\r\n                \"payment_gateway\": \"\",\r\n                \"transaction_id\": \"\",\r\n                \"gateway_reference\": \"\",\r\n                \"order_id\": \"\",\r\n                \"mobile_number\": \"\",\r\n                \"card_type\": \"\",\r\n                \"card_last4\": \"\",\r\n                \"card_issuer\": \"\",\r\n                \"bank_name\": \"\",\r\n                \"bank_account\": \"\",\r\n                \"currency\": \"BDT\",\r\n                \"payment_amount\": 3000.00,\r\n                \"gateway_fee\": 0.00,\r\n                \"payment_status\": \"SUCCESS\",\r\n                \"ip_address\": \"\",\r\n                \"device_info\": \"\",\r\n                \"remarks\": \"Onsite payment\",\r\n                \"paymnet_for\": \"Sales\" // NOTE: typo here as well\r\n            },\r\n            \"SALESDetails\": [\r\n                {\r\n                    \"itemCode\": \"ITEM003\",\r\n                    \"itemName\": \"Vitamin C 500mg\",\r\n                    \"packSize\": \"20x10\",\r\n                    \"uom\": \"Box\",\r\n                    \"salesQty\": 5,\r\n                    \"unitPrice\": 150.00,\r\n                    \"unitVatPrct\": 15.00,\r\n                    \"unitDiscount\": 10.00,\r\n                    \"totalLineCost\": 825.00\r\n                }\r\n            ]\r\n        }\r\n    ]\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://stepserp.webnstech.net/Webns/steperp/med/sales?API_KEY=d0e876fbfb1c0033b14c69281f3ccff1cf908ce2a7b9b7255b1892a90687b33a",
+          "protocol": "https",
+          "host": [
+            "stepserp",
+            "webnstech",
+            "net"
+          ],
+          "path": [
+            "Webns",
+            "steperp",
+            "med",
+            "sales"
+          ],
+          "query": [
+            {
+              "key": "API_KEY",
+              "value": "d0e876fbfb1c0033b14c69281f3ccff1cf908ce2a7b9b7255b1892a90687b33a"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "sales-return",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"SALESReturnHeader\": [ // Array of sales return records\r\n        {\r\n            \"returnNo\": \"RET-20260308-001\", // Unique return number\r\n            \"returnDate\": \"2026-03-08\", // Date of the return\r\n            \"originalInvoiceNo\": \"INV-20260308-001\", // Original invoice number related to this return\r\n            \"customerCode\": \"CUST001\", // Unique code of the customer\r\n            \"customerName\": \"John Doe\", // Customer's full name\r\n            \"customerPhone\": \"017XXXXXXXX\", // Customer phone number\r\n            \"customerAddress\": \"123, Main Street, Dhaka\", // Customer address\r\n            \"returnMode\": \"Cash\", // Mode of return (Cash, Credit, etc.)\r\n            \"totalReturnAmount\": 1000.00, // Total amount being returned before discount and VAT\r\n            \"totalDiscount\": 50.00, // Total discount applied on returned items\r\n            \"totalVatAmount\": 90.00, // Total VAT for returned items\r\n            \"netReturnAmount\": 1040.00, // Final return amount (after discount and VAT)\r\n            \"returnReason\": \"Damaged Product\", // General reason for the return\r\n            \"salesPerson\": \"Alice\", // Salesperson handling the return\r\n            \"refundStatus\": \"Refunded\", // Status of refund (Refunded, Pending, Partial)\r\n            \"entryById\": \"E001\",\r\n            \"entryByName\": \"asad\",\r\n            \"refund\": { // Object containing refund/payment details for the return\r\n                \"payment_method\": \"CASH\", // Payment method used for refund\r\n                \"payment_gateway\": \"\", // Gateway used, empty for cash\r\n                \"transaction_id\": \"\", // Transaction ID, empty for cash\r\n                \"gateway_reference\": \"\", // Gateway reference number\r\n                \"order_id\": \"\", // Associated order ID if applicable\r\n                \"mobile_number\": \"\", // Mobile number used for refund\r\n                \"card_type\": \"\", // Card type if card refund\r\n                \"card_last4\": \"\", // Last 4 digits of card if applicable\r\n                \"card_issuer\": \"\", // Card issuer bank\r\n                \"bank_name\": \"\", // Bank name if bank transfer refund\r\n                \"bank_account\": \"\", // Bank account number if applicable\r\n                \"currency\": \"BDT\", // Currency of refund\r\n                \"payment_amount\": 1040.00, // Amount refunded\r\n                \"gateway_fee\": 0.00, // Fee charged by gateway\r\n                \"payment_status\": \"SUCCESS\", // Status of refund (SUCCESS, FAILED, PENDING)\r\n                \"ip_address\": \"\", // IP address of payer\r\n                \"device_info\": \"\", // Device/browser used for payment\r\n                \"remarks\": \"Refund for returned sales\", // Additional notes about refund\r\n                \"payment_for\": \"Sales Return\" // Purpose of payment/refund\r\n            },\r\n            \"SALESReturnDetails\": [ // Array of individual items being returned\r\n                {\r\n                    \"itemCode\": \"ITEM001\", // Unique item code\r\n                    \"itemName\": \"Paracetamol 500mg\", // Item name\r\n                    \"packSize\": \"10x10\", // Packaging size\r\n                    \"uom\": \"Box\", // Unit of measure\r\n                    \"returnQty\": 1, // Quantity being returned\r\n                    \"unitPrice\": 200.00, // Price per unit before VAT/discount\r\n                    \"unitVatPrct\": 15.00, // VAT percentage per unit\r\n                    \"unitDiscount\": 5.00, // Discount per unit\r\n                    \"totalLineCost\": 195.00, // Total cost for this line (after discount + VAT)\r\n                    \"returnReason\": \"Damaged strip\" // Reason for return of this specific item\r\n                },\r\n                {\r\n                    \"itemCode\": \"ITEM002\",\r\n                    \"itemName\": \"Amoxicillin 250mg\",\r\n                    \"packSize\": \"10x10\",\r\n                    \"uom\": \"Box\",\r\n                    \"returnQty\": 1,\r\n                    \"unitPrice\": 300.00,\r\n                    \"unitVatPrct\": 15.00,\r\n                    \"unitDiscount\": 0.00,\r\n                    \"totalLineCost\": 345.00,\r\n                    \"returnReason\": \"Expired\"\r\n                }\r\n            ]\r\n        }\r\n    ]\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://stepserp.webnstech.net/Webns/steperp/med/sales-return?API_KEY=d0e876fbfb1c0033b14c69281f3ccff1cf908ce2a7b9b7255b1892a90687b33a",
+          "protocol": "https",
+          "host": [
+            "stepserp",
+            "webnstech",
+            "net"
+          ],
+          "path": [
+            "Webns",
+            "steperp",
+            "med",
+            "sales-return"
+          ],
+          "query": [
+            {
+              "key": "API_KEY",
+              "value": "d0e876fbfb1c0033b14c69281f3ccff1cf908ce2a7b9b7255b1892a90687b33a"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "salary-sheet",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"salaryMonth\": \"2026-03\",\r\n    \"salaryType\": \"Monthly\",\r\n    \"salary_Prepared_by\": \"E0001\",\r\n    \"company_name\": \"GENESIS\",\r\n    \"employeeSalaries\": [\r\n        {\r\n            \"employeeId\": \"EMP001\", // Unique ID of the employee\r\n            \"employeeName\": \"Rahim Uddin\", // Full name of the employee\r\n            \"department\": \"Accounts\", // Department of the employee\r\n            \"designation\": \"Account Officer\", // Employee's designation/position\r\n            \"bankAccount\": \"1234567890\", // Bank account number for salary transfer\r\n            \"bankName\": \"DBBL\", // Bank name\r\n            \"basicSalary\": 30000.00, // Basic salary component\r\n            \"houseRent\": 15000.00, // House rent allowance\r\n            \"medicalAllowance\": 3000.00, // Medical allowance\r\n            \"conveyanceAllowance\": 2000.00, // Conveyance allowance\r\n            \"otherAllowance\": 1000.00, // Any other allowances\r\n            \"grossSalary\": 51000.00, // Total salary before deductions (sum of all allowances + basic)\r\n            \"taxDeduction\": 2000.00, // Tax deduction amount\r\n            \"pfDeduction\": 1500.00, // Provident Fund deduction\r\n            \"loanDeduction\": 1000.00, // Loan or advance deduction\r\n            \"otherDeduction\": 500.00, // Any other deductions\r\n            \"totalDeduction\": 5000.00, // Total deductions (sum of all deduction components)\r\n            \"netSalary\": 46000.00, // Salary payable after deductions\r\n            \"paymentMethod\": \"BANK\", // Payment method (BANK, CASH, BKASH, etc.)\r\n            \"paymentStatus\": \"Pending\", // Status of salary payment (Pending, Paid, Partial)\r\n            \"remarks\": \"March salary\" // Additional notes\r\n        },\r\n        {\r\n            \"employeeId\": \"EMP002\",\r\n            \"employeeName\": \"Karim Ahmed\",\r\n            \"department\": \"IT\",\r\n            \"designation\": \"Software Engineer\",\r\n            \"bankAccount\": \"\", // Empty if payment is CASH or other non-bank method\r\n            \"bankName\": \"\", // Empty if not using bank transfer\r\n            \"basicSalary\": 40000.00,\r\n            \"houseRent\": 20000.00,\r\n            \"medicalAllowance\": 4000.00,\r\n            \"conveyanceAllowance\": 3000.00,\r\n            \"otherAllowance\": 2000.00,\r\n            \"grossSalary\": 69000.00,\r\n            \"taxDeduction\": 3500.00,\r\n            \"pfDeduction\": 2000.00,\r\n            \"loanDeduction\": 0.00,\r\n            \"otherDeduction\": 500.00,\r\n            \"totalDeduction\": 6000.00,\r\n            \"netSalary\": 63000.00,\r\n            \"paymentMethod\": \"CASH\", // Payment to be made in cash\r\n            \"paymentStatus\": \"Pending\",\r\n            \"remarks\": \"March salary\"\r\n        }\r\n    ]\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://stepserp.webnstech.net/Webns/steperp/med/salary-sheet?API_KEY=d0e876fbfb1c0033b14c69281f3ccff1cf908ce2a7b9b7255b1892a90687b33a",
+          "protocol": "https",
+          "host": [
+            "stepserp",
+            "webnstech",
+            "net"
+          ],
+          "path": [
+            "Webns",
+            "steperp",
+            "med",
+            "salary-sheet"
+          ],
+          "query": [
+            {
+              "key": "API_KEY",
+              "value": "d0e876fbfb1c0033b14c69281f3ccff1cf908ce2a7b9b7255b1892a90687b33a"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "batch-shifting",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"batch_shift\": { // Object containing details about a batch shift request\r\n        \"shift_date\": \"2026-03-09\", // Date on which the batch shift is requested\r\n        \"shift_reason\": \"Schedule conflict\", // Reason for the shift\r\n        \"reg_no\": \"REG1001\", // Original registration number\r\n        \"new_reg_no\": \"REG1002\", // New registration number after shift (if applicable)\r\n        \"shifting_type\": \"NEW_BATCH\", // Type of shift: \"NEW_BATCH\" or \"FUTURE_BATCH\"\r\n        \"used_amount\": 3000, // Amount already used or paid by the student\r\n        \"batch_shifting_fee\": 2000, // Fee charged for shifting batch,\r\n        \"adjustment_amount\": 2000,\r\n        \"rest_amount\": 2000, // Remaining amount to be adjusted or refunded\r\n        \"new_batch\": { // Object representing the new batch details after shifting\r\n            \"reg_no\": \"REG1001\", // Student registration number for new batch\r\n            \"full_name\": \"Rahim Uddin\", // Full name of the student\r\n            \"gender\": \"Male\", // Gender of the student\r\n            \"phone\": \"01711111111\", // Contact phone number\r\n            \"email\": \"rahim@gmail.com\", // Email address\r\n            \"project_code\": \"00001\",\r\n            \"project_name\": \"FCPS Part-I\",\r\n            \"course_id\": 101, // Course ID\r\n            \"course_name\": \"Web Development\", // Course name\r\n            \"course_code\": \"WD-01\", // Course code\r\n            \"course_category_id\": 10, // Course category ID\r\n            \"course_category_name\": \"IT\", // Course category name\r\n            \"branch_id\": 1, // Branch or campus ID\r\n            \"batch_name\": \"Batch-15\", // Name of the new batch\r\n            \"batch_id\": 1333,\r\n            \"batch_type\": \"Regular\", // Batch type (Regular, Weekend, Online, etc.)\r\n            \"session_id\": 2026, // Academic session ID\r\n            \"session_name\": \"Spring 2026\", // Academic session name\r\n            \"course_fee\": 30000, // Total course fee\r\n            \"lecture_sheet_fee\": 2000, // Fee for lecture sheets/materials\r\n            \"discount_amount\": 1000, // Discount applied\r\n            \"prev_batch_rest_amount\": 2000, // Remaining amount from previous batch\r\n            \"payment\": { // Payment details for the new batch\r\n                \"payment_method\": \"BKASH\", // Payment method (BKASH, CASH, BANK, etc.)\r\n                \"payment_gateway\": \"BKASH\", // Online gateway used for payment\r\n                \"transaction_id\": \"XDASDFASFD\", // Gateway transaction ID\r\n                \"gateway_reference\": \"\", // Gateway reference number\r\n                \"mobile_ac_number\": \"01711111111\", // bkash a/c number received for payment\r\n                \"mobile_number\": \"01711111111\", // Mobile number used for payment\r\n                \"card_type\": \"\", // Card type if card used\r\n                \"card_last4\": \"\", // Last 4 digits of card number\r\n                \"card_issuer\": \"\", // Card issuing bank\r\n                \"bank_name\": \"\", // Bank name if applicable\r\n                \"bank_account\": \"\", // Bank account number if applicable\r\n                \"currency\": \"BDT\", // Currency code\r\n                \"payment_amount\": 3000.00, // Payment amount\r\n                \"gateway_fee\": 0.00, // Fee charged by payment gateway\r\n                \"payment_status\": \"SUCCESS\", // Status of payment (SUCCESS, FAILED, PENDING)\r\n                \"ip_address\": \"\", // IP address of payer\r\n                \"device_info\": \"\", // Device/browser info\r\n                \"remarks\": \"Online payment\" // Additional notes\r\n            }\r\n        }\r\n    }\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://stepserp.webnstech.net/Webns/steperp/med/batch-shifting?API_KEY=d0e876fbfb1c0033b14c69281f3ccff1cf908ce2a7b9b7255b1892a90687b33a",
+          "protocol": "https",
+          "host": [
+            "stepserp",
+            "webnstech",
+            "net"
+          ],
+          "path": [
+            "Webns",
+            "steperp",
+            "med",
+            "batch-shifting"
+          ],
+          "query": [
+            {
+              "key": "API_KEY",
+              "value": "d0e876fbfb1c0033b14c69281f3ccff1cf908ce2a7b9b7255b1892a90687b33a"
+            }
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}
