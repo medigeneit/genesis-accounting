@@ -39,4 +39,26 @@ return [
 
     'timeout' => env('ERP_API_TIMEOUT', 30),
 
+    'projects' => [
+        '00001' => 'FCPS Part-I',
+        '00002' => 'FCPS Part-II',
+        '00003' => 'MidTerm',
+        '00004' => 'Residency',
+        '00005' => 'Diploma',
+        '00006' => 'BCS',
+        '00007' => 'Edudent',
+        '00008' => 'Outlier',
+        '00009' => 'Online University',
+        '00010' => 'GRC',
+        '00011' => 'DSC',
+        '00012' => 'AVR',
+        '00013' => 'Medigine IT',
+        '00014' => 'GP',
+        '00015' => 'Ultra',
+        '00016' => 'CMRD',
+        '00017' => 'Banglamed Publication',
+        '00018' => 'Bayanno MediMart',
+        '00019' => 'Sales Books Corner',
+    ]
+
 ];
